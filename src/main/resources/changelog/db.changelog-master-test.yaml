@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - include:
+      file: changelog/db.changelog-1.0.sql
+  - include:
+      file: changelog/db.changelog-2.0-test.sql
+
+
+

@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: nickz
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  app:
+    container_name: aopdemo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      SPRING_DATASOURCE_USERNAME: nickz
+      SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      - postgres
+      - spring
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+  spring:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
