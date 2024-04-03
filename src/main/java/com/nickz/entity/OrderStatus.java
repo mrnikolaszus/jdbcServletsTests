@@ -1,4 +1,10 @@
 package com.nickz.entity;
 
-public enum Status {
+public enum OrderStatus {
+    processing,
+    completed,
+    cancelled;
+
+
+
 }

@@ -32,3 +32,5 @@ CREATE TABLE products
     quantity    INT            NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders (order_id) ON DELETE CASCADE
 );
+-- Создание enum
+CREATE TYPE order_status AS ENUM ('processing', 'completed', 'cancelled');

@@ -1,17 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="jdbcServlets:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f538816b-af4c-4e28-9122-e2b9ff9e3d2a" name="Changes" comment="" />
+    <list default="true" id="f538816b-af4c-4e28-9122-e2b9ff9e3d2a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/controllers/TestServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/dto/OrderDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/OrderDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/DatabaseOperationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderCreationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderDeletionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderUpdateException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/repository/OrderDetailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/repository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/util/ConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/util/LiquibaseInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-1.0.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-2.0-test.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-2.0.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master-test.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/liquibase.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/IntegrationTestBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/OrderDetailRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/OrderRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/OrderServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/ProductRepositoryTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="2eUQiiQ24KETJ7Wi2YrcgaRuZc9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -24,10 +83,220 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/MSIN/IdeaProjects/jdbcServlets/src/test/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15826495",
+    "project.structure.side.proportion": "0.14664805",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MSIN\IdeaProjects\jdbcServlets\src\test\resources" />
+      <recent name="C:\Users\MSIN\IdeaProjects\jdbcServlets\src\main\resources\changelog" />
+      <recent name="C:\Users\MSIN\IdeaProjects\jdbcServlets\src\main\resources" />
+      <recent name="C:\Users\MSIN\IdeaProjects\jdbcServlets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MSIN\IdeaProjects\jdbcServlets\src\main\resources\changelog" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nickz.exception" />
+      <recent name="com.nickz" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.nickz in jdbcServlets">
+    <configuration name="OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbcServlets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nickz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nickz" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
+      <option name="METHOD_NAME" value="getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbcServlets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nickz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nickz" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
+      <option name="METHOD_NAME" value="getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbcServlets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nickz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nickz" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
+      <option name="METHOD_NAME" value="updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbcServlets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nickz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nickz" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
+      <option name="METHOD_NAME" value="updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="nickz in jdbcServlets" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbcServlets" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/com/nickz" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 10.1.10" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.10" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="jdbcServlets:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="cb2c6a48-5cdd-41ac-95ce-325fe1fb5ef9" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="49647" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="jdbcServlets:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
+      <item itemvalue="JUnit.OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
+      <item itemvalue="JUnit.OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
+      <item itemvalue="JUnit.OrderServiceTest.updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" />
+      <item itemvalue="JUnit.nickz in jdbcServlets" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.10" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.nickz in jdbcServlets" />
+        <item itemvalue="JUnit.OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
+        <item itemvalue="JUnit.OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
+        <item itemvalue="JUnit.OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
+        <item itemvalue="JUnit.OrderServiceTest.updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -36,8 +305,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711956807717</updated>
-      <workItem from="1711956808698" duration="6000" />
+      <workItem from="1711956808698" duration="5108000" />
+      <workItem from="1711983951657" duration="142000" />
+      <workItem from="1711984547367" duration="5797000" />
+      <workItem from="1712054588079" duration="17564000" />
+      <workItem from="1712135800095" duration="15525000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/nickz/App.java</url>
+          <line>4</line>
+          <properties class="com.nickz.App" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/nickz/entity/Product.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

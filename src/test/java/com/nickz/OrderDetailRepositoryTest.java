@@ -1,15 +1,15 @@
 package com.nickz;
 
-
-import com.nickz.entity.Order;
+import com.nickz.entity.OrderDetail;
 import com.nickz.entity.OrderStatus;
+import com.nickz.entity.Order;
+import com.nickz.repository.OrderDetailRepository;
 import com.nickz.repository.OrderRepository;
-
 import com.nickz.util.ConnectionManager;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -21,12 +21,11 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 
-
 @Testcontainers
-public class OrderRepositoryTest extends IntegrationTestBase {
-
+public class OrderDetailRepositoryTest extends IntegrationTestBase {
 
     private static MockedStatic<ConnectionManager> mockedConnectionManager;
+    private static OrderDetailRepository orderDetailRepository;
     private static OrderRepository orderRepository;
 
     @BeforeAll
@@ -49,55 +48,66 @@ public class OrderRepositoryTest extends IntegrationTestBase {
                 }
         );
 
-
         mockedConnectionManager.when(ConnectionManager::getConnect).thenReturn(mockConnection);
 
+        orderDetailRepository = new OrderDetailRepository();
         orderRepository = new OrderRepository();
     }
 
+    @AfterAll
+    static void tearDown() {
+        mockedConnectionManager.close();
+    }
+
     @Test
-    void testCreateOrder() throws SQLException {
+    void testCreateOrderDetail() throws SQLException {
+
         Order newOrder = new Order();
         newOrder.setOrderDate(LocalDateTime.now());
         newOrder.setStatus(OrderStatus.processing);
-
-        orderRepository.create(newOrder);
-
-        List<Order> orders = orderRepository.findAll();
-        Assertions.assertFalse(orders.isEmpty());
+        int newOrderId = orderRepository.create(newOrder);
+        OrderDetail newDetail = new OrderDetail();
+        newDetail.setOrderId(newOrderId);
+        newDetail.setCustomerName("Test Customer");
+        newDetail.setOrderDescription("Test Description");
+        newDetail.setCustomerContact("Test Contact");
+        orderDetailRepository.create(newDetail);
+        List<OrderDetail> details = orderDetailRepository.findAll();
+        Assertions.assertFalse(details.isEmpty());
     }
 
     @Test
-    void testFindOrderById() throws SQLException {
-        Order order = orderRepository.findById(1);
-        Assertions.assertNotNull(order);
-        Assertions.assertEquals(1, order.getOrderId());
+    void testFindOrderDetailById() throws SQLException {
+        OrderDetail detail = orderDetailRepository.findById(5);
+        Assertions.assertNotNull(detail);
+        Assertions.assertEquals(5, detail.getDetailId());
     }
 
     @Test
-    void testUpdateOrder() throws SQLException {
-        Order order = orderRepository.findById(1);
-        Assertions.assertNotNull(order);
-
-        order.setStatus(OrderStatus.completed);
-        orderRepository.update(order);
-
-        Order updatedOrder = orderRepository.findById(1);
-        Assertions.assertEquals(OrderStatus.completed, updatedOrder.getStatus());
+    void testUpdateOrderDetail() throws SQLException {
+        OrderDetail detail = orderDetailRepository.findById(6);
+        Assertions.assertNotNull(detail);
+        detail.setCustomerName("Updated Customer");
+        orderDetailRepository.update(detail);
+        OrderDetail updatedDetail = orderDetailRepository.findById(6);
+        Assertions.assertEquals("Updated Customer", updatedDetail.getCustomerName());
     }
 
     @Test
-    void testDeleteOrder() throws SQLException {
+    void testDeleteOrderDetail() throws SQLException {
         Order newOrder = new Order();
         newOrder.setOrderDate(LocalDateTime.now());
         newOrder.setStatus(OrderStatus.processing);
-        orderRepository.create(newOrder);
+        int newOrderId = orderRepository.create(newOrder);
 
-        orderRepository.delete(2);
-        Order order = orderRepository.findById(2);
-        Assertions.assertNull(order);
+        OrderDetail newDetail = new OrderDetail();
+        newDetail.setOrderId(newOrderId);
+        newDetail.setCustomerName("Test Customer");
+        newDetail.setOrderDescription("Test Description");
+        newDetail.setCustomerContact("Test Contact");
+        orderDetailRepository.create(newDetail);
+        orderDetailRepository.delete(newOrderId);
+        OrderDetail detail = orderDetailRepository.findById(newOrderId);
+        Assertions.assertNull(detail);
     }
-
-
-
 }

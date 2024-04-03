@@ -1,7 +1,7 @@
 package com.nickz.exception;
 
-public class OrderUpdateException extends RuntimeException {
-    public OrderUpdateException(String message, Throwable cause) {
-        super(message, cause);
+public class OrderNotFoundException extends RuntimeException {
+    public OrderNotFoundException(String message) {
+        super(message);
     }
 }
