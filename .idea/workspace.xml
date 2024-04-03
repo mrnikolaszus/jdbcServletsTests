@@ -9,45 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f538816b-af4c-4e28-9122-e2b9ff9e3d2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/controllers/TestServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/dto/OrderDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/OrderDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/DatabaseOperationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderCreationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderDeletionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderUpdateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/repository/OrderDetailRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/repository/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/util/ConnectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/util/LiquibaseInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-1.0.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-2.0-test.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-2.0.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/changelog/db.changelog-master.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/liquibase.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/IntegrationTestBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/OrderDetailRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/OrderRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/OrderServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/ProductRepositoryTest.java" afterDir="false" />
+    <list default="true" id="f538816b-af4c-4e28-9122-e2b9ff9e3d2a" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/controllers/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/controllers/error/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nickz/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/controllers/TestServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/util/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nickz/util/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/util/LiquibaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nickz/util/LiquibaseInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +34,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -80,30 +51,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/MSIN/IdeaProjects/jdbcServlets/src/test/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15826495",
-    "project.structure.side.proportion": "0.14664805",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MSIN/IdeaProjects/jdbcServlets/src/test/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15826495&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.14664805&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\MSIN\IdeaProjects\jdbcServlets\src\test\resources" />
@@ -119,7 +90,20 @@
       <recent name="com.nickz" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.nickz in jdbcServlets">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.10">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nickz.App" />
+      <module name="jdbcServlets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nickz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbcServlets" />
       <extension name="coverage">
@@ -163,22 +147,6 @@
       <option name="PACKAGE_NAME" value="com.nickz" />
       <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
       <option name="METHOD_NAME" value="updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceTest.updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jdbcServlets" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nickz.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nickz" />
-      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
-      <option name="METHOD_NAME" value="updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -280,20 +248,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.App" />
       <item itemvalue="JUnit.OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
       <item itemvalue="JUnit.OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
       <item itemvalue="JUnit.OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
-      <item itemvalue="JUnit.OrderServiceTest.updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" />
       <item itemvalue="JUnit.nickz in jdbcServlets" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.10" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.nickz in jdbcServlets" />
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
         <item itemvalue="JUnit.OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
         <item itemvalue="JUnit.OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
-        <item itemvalue="JUnit.OrderServiceTest.updateOrder_ShouldCorrectlyUpdateOrderDetailsAndProducts" />
       </list>
     </recent_temporary>
   </component>
@@ -309,19 +277,50 @@
       <workItem from="1711983951657" duration="142000" />
       <workItem from="1711984547367" duration="5797000" />
       <workItem from="1712054588079" duration="17564000" />
-      <workItem from="1712135800095" duration="15525000" />
+      <workItem from="1712135800095" duration="22785000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit&#10;Repo+service&#10;tests&#10;(no servlets)">
+      <created>1712156346324</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712156346324</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test">
+      <created>1712156481161</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712156481161</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit&#10;Repo+service&#10;tests&#10;(no servlets)" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/nickz/App.java</url>
-          <line>4</line>
+          <line>6</line>
           <properties class="com.nickz.App" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

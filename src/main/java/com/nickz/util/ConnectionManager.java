@@ -26,9 +26,10 @@ public class ConnectionManager {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
+            System.err.println("Не удалось загрузить драйвер PostgreSQL: " + e.getMessage());
             throw new RuntimeException("Не удалось загрузить драйвер PostgreSQL", e);
         }
-        
+
         initConnectionPool();
     }
 
@@ -38,8 +39,10 @@ public class ConnectionManager {
 
     private static void initConnectionPool() {
 
-        if (System.getProperty("app.mode").equals("test")) {
-         return;
+        String appMode = System.getProperty("app.mode");
+        if ("test".equals(appMode)) {
+            System.out.println("Connection pool initialization skipped in test mode");
+            return;
         }
 
         pool = new ArrayBlockingQueue<>(POOL_SIZE);
@@ -48,7 +51,7 @@ public class ConnectionManager {
             var connection = open();
             var proxyConnection = (Connection) Proxy.newProxyInstance(ConnectionManager.class.getClassLoader(), new Class[]{Connection.class},
                     (proxy, method, args) -> method.getName().equals("close")
-                            ? pool.add((Connection) proxy) : method.invoke(connection, args));
+                            ? pool.offer((Connection) proxy) : method.invoke(connection, args));
             pool.add(proxyConnection);
             closePool.add(connection);
         }

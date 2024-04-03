@@ -21,7 +21,13 @@ public class LiquibaseInitializer implements ServletContextListener {
         runLiquibase();
     }
 
-    private void runLiquibase() {
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        ConnectionManager.closePool();
+        System.out.println("Connection pool has been closed.");
+    }
+
+    public static void runLiquibase() {
         try (Connection connection = ConnectionManager.getConnect()) {
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
             try (Liquibase liquibase = new liquibase.Liquibase(CHANGELOG_FILE, new ClassLoaderResourceAccessor(), database)) {
@@ -32,9 +38,8 @@ public class LiquibaseInitializer implements ServletContextListener {
         }
     }
 
-    public static void runLiquibaseTest(String JDBC_URL, String USER, String PASSWORD ) {
-        try {
-            Connection connection = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
+    public static void runLiquibaseTest(String JDBC_URL, String USER, String PASSWORD) {
+        try (Connection connection = DriverManager.getConnection(JDBC_URL, USER, PASSWORD)) {
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
             try (Liquibase liquibase = new liquibase.Liquibase(CHANGELOG_FILE_TEST, new ClassLoaderResourceAccessor(), database)) {
                 liquibase.update(new liquibase.Contexts(), new liquibase.LabelExpression());
