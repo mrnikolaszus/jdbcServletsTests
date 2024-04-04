@@ -1,5 +1,6 @@
-package com.nickz;
+package com.nickz.integration;
 
+import com.nickz.dto.OrderCreateDto;
 import com.nickz.dto.OrderDto;
 import com.nickz.entity.OrderDetail;
 import com.nickz.entity.OrderStatus;
@@ -30,7 +31,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class OrderServiceTest extends IntegrationTestBase{
+public class OrderServiceTestIT extends IntegrationTestBase{
 
 
     private static MockedStatic<ConnectionManager> mockedConnectionManager;
@@ -80,7 +81,7 @@ public class OrderServiceTest extends IntegrationTestBase{
 
     @Test
     void createOrder_ShouldPersistOrderWithDetailsAndProducts() {
-        OrderDto orderDto = setupOrderDto();
+        OrderCreateDto orderDto = setupCreateOrderDto();
         orderService.createOrder(orderDto);
     }
 
@@ -132,7 +133,7 @@ public class OrderServiceTest extends IntegrationTestBase{
 
     @Test
     void createOrderWithMultipleProducts_ShouldPersistAllProducts() {
-        OrderDto orderDto = setupOrderDto();
+        OrderCreateDto orderDto = setupCreateOrderDto();
         orderService.createOrder(orderDto);
         List<OrderDto> orders = orderService.getAllOrders();
         Assertions.assertTrue(orders.stream().anyMatch(o -> o.getProducts().size() == 2), "Order with two products should be persisted");
@@ -201,5 +202,33 @@ public class OrderServiceTest extends IntegrationTestBase{
 
         return orderDto;
     }
+
+    private OrderCreateDto setupCreateOrderDto() {
+        OrderCreateDto orderCreateDto = new OrderCreateDto();
+        orderCreateDto.setStatus(OrderStatus.processing);
+
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.setCustomerName("Test name");
+        orderDetail.setOrderDescription("Test order with multiple products");
+        orderDetail.setCustomerContact("testmail@example.com");
+        orderCreateDto.setOrderDetail(orderDetail);
+
+        Product product1 = new Product();
+        product1.setName("Product A");
+        product1.setDescription("Description for Product A");
+        product1.setPrice(new BigDecimal("29.99"));
+        product1.setQuantity(3);
+
+        Product product2 = new Product();
+        product2.setName("Product B");
+        product2.setDescription("Description for Product B");
+        product2.setPrice(new BigDecimal("39.99"));
+        product2.setQuantity(4);
+
+        orderCreateDto.setProducts(List.of(product1, product2));
+
+        return orderCreateDto;
+    }
+
 
 }

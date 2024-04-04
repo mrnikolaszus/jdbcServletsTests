@@ -2,6 +2,7 @@ package com.nickz.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.nickz.dto.OrderCreateDto;
 import com.nickz.dto.OrderDto;
 import com.nickz.controllers.error.ErrorResponse;
 import com.nickz.exception.OrderDeletionException;
@@ -69,8 +70,8 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            OrderDto orderDto = objectMapper.readValue(req.getReader(), OrderDto.class);
-            orderService.createOrder(orderDto);
+            OrderCreateDto orderCreateDto = objectMapper.readValue(req.getReader(), OrderCreateDto.class);
+            orderService.createOrder(orderCreateDto);
             resp.setStatus(HttpServletResponse.SC_CREATED);
         } catch (Exception e) {
             sendErrorResponse(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());

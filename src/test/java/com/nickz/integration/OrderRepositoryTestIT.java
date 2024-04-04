@@ -1,6 +1,7 @@
-package com.nickz;
+package com.nickz.integration;
 
 
+import com.nickz.dto.OrderCreateDto;
 import com.nickz.entity.Order;
 import com.nickz.entity.OrderStatus;
 import com.nickz.repository.OrderRepository;
@@ -19,12 +20,11 @@ import java.lang.reflect.Proxy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 
 @Testcontainers
-public class OrderRepositoryTest extends IntegrationTestBase {
+public class OrderRepositoryTestIT extends IntegrationTestBase {
 
 
     private static MockedStatic<ConnectionManager> mockedConnectionManager;
@@ -63,8 +63,7 @@ public class OrderRepositoryTest extends IntegrationTestBase {
 
     @Test
     void testCreateOrder() throws SQLException {
-        Order newOrder = new Order();
-        newOrder.setOrderDate(LocalDateTime.now());
+        OrderCreateDto newOrder = new OrderCreateDto();
         newOrder.setStatus(OrderStatus.processing);
 
         var size = orderRepository.findAll().size();
@@ -95,8 +94,7 @@ public class OrderRepositoryTest extends IntegrationTestBase {
 
     @Test
     void testDeleteOrder() throws SQLException {
-        Order newOrder = new Order();
-        newOrder.setOrderDate(LocalDateTime.now());
+        OrderCreateDto newOrder = new OrderCreateDto();
         newOrder.setStatus(OrderStatus.processing);
         int newOrderId = orderRepository.create(newOrder);
 

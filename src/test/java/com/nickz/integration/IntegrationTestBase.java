@@ -1,4 +1,4 @@
-package com.nickz;
+package com.nickz.integration;
 
 import com.nickz.util.LiquibaseInitializer;
 import org.junit.jupiter.api.AfterAll;

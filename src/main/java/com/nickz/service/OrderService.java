@@ -1,5 +1,6 @@
 package com.nickz.service;
 
+import com.nickz.dto.OrderCreateDto;
 import com.nickz.dto.OrderDto;
 import com.nickz.entity.Order;
 import com.nickz.entity.OrderDetail;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class OrderService {
 
@@ -60,18 +62,17 @@ public class OrderService {
         }
     }
 
-    public void createOrder(OrderDto orderDto) {
+    public void createOrder(OrderCreateDto orderCreateDto) {
         try {
-            Order order = new Order();
-            order.setOrderDate(orderDto.getOrderDate());
-            order.setStatus(orderDto.getStatus());
+            OrderCreateDto order = new OrderCreateDto();
+            order.setStatus(orderCreateDto.getStatus());
             int orderId = orderRepository.create(order);
 
-            OrderDetail orderDetail = orderDto.getOrderDetail();
+            OrderDetail orderDetail = orderCreateDto.getOrderDetail();
             orderDetail.setOrderId(orderId);
             orderDetailRepository.create(orderDetail);
 
-            List<Product> products = orderDto.getProducts();
+            List<Product> products = orderCreateDto.getProducts();
             for (Product product : products) {
                 product.setOrderId(orderId);
                 productRepository.create(product);
@@ -83,21 +84,35 @@ public class OrderService {
 
     public void updateOrder(OrderDto orderDto) {
         try {
-            Order order = new Order();
-            order.setOrderId(orderDto.getOrderId());
-            order.setOrderDate(orderDto.getOrderDate());
-            order.setStatus(orderDto.getStatus());
-            orderRepository.update(order);
-            OrderDetail orderDetail = orderDto.getOrderDetail();
-            orderDetail.setOrderId(orderDto.getOrderId());
-            orderDetailRepository.update(orderDetail);
-            List<Product> products = orderDto.getProducts();
-            for (Product product : products) {
-                product.setOrderId(orderDto.getOrderId());
-
-                productRepository.update(product);
+            Optional<Order> existingOrderOpt = orderRepository.findById(orderDto.getOrderId());
+            if (!existingOrderOpt.isPresent()) {
+                throw new OrderUpdateException("Order not found with ID: " + orderDto.getOrderId());
             }
-        } catch (Exception e) {
+            Order existingOrder = existingOrderOpt.get();
+            if (orderDto.getOrderDate() == null) {
+                orderDto.setOrderDate(existingOrder.getOrderDate());
+            }
+            if (orderDto.getOrderDetail() == null) {
+                orderDto.setOrderDetail(orderDetailRepository.findByOrderId(existingOrder.getOrderId()));
+            }
+            if (orderDto.getProducts() == null || orderDto.getProducts().isEmpty()) {
+                orderDto.setProducts(productRepository.findByOrderId(existingOrder.getOrderId()));
+            }
+            existingOrder.setStatus(orderDto.getStatus());
+            orderRepository.update(existingOrder);
+            if (orderDto.getOrderDetail() != null) {
+                OrderDetail orderDetail = orderDto.getOrderDetail();
+                orderDetail.setOrderId(orderDto.getOrderId());
+                orderDetailRepository.update(orderDetail);
+            }
+            if (orderDto.getProducts() != null) {
+                for (Product product : orderDto.getProducts()) {
+                    product.setOrderId(orderDto.getOrderId());
+                    productRepository.update(product);
+                }
+            }
+
+        } catch (SQLException e) {
             throw new OrderUpdateException("Failed to update order with ID: " + orderDto.getOrderId(), e);
         }
     }

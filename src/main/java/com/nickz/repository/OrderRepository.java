@@ -1,11 +1,13 @@
 package com.nickz.repository;
 
+import com.nickz.dto.OrderCreateDto;
 import com.nickz.entity.Order;
 import com.nickz.entity.OrderStatus;
 import com.nickz.exception.DatabaseOperationException;
 import com.nickz.util.ConnectionManager;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -41,11 +43,11 @@ public class OrderRepository {
         return orders;
     }
 
-    public int create(Order order) throws SQLException {
+    public int create(OrderCreateDto order) throws SQLException {
         String sql = "INSERT INTO orders (order_date, status) VALUES (?, ?::order_status) RETURNING order_id";
         try (Connection conn = ConnectionManager.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setTimestamp(1, Timestamp.valueOf(order.getOrderDate()));
+            stmt.setTimestamp(1, Timestamp.valueOf(LocalDateTime.now()));
             stmt.setString(2, order.getStatus().name());
 
             int affectedRows = stmt.executeUpdate();
@@ -102,4 +104,6 @@ public class OrderRepository {
         order.setStatus(OrderStatus.valueOf(rs.getString("status")));
         return order;
     }
+
+
 }

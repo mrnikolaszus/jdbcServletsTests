@@ -9,9 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f538816b-af4c-4e28-9122-e2b9ff9e3d2a" name="Changes" comment="controller logic&#10;problem fixes">
+    <list default="true" id="f538816b-af4c-4e28-9122-e2b9ff9e3d2a" name="Changes" comment="readme v1.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickz/dto/OrderCreateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/unit/OrderDetailRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/unit/OrderRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/unit/OrderServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/nickz/unit/ProductRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nickz/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderUpdateException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nickz/exception/OrderUpdateException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nickz/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nickz/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nickz/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/nickz/IntegrationTestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nickz/integration/IntegrationTestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/nickz/OrderDetailRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nickz/integration/OrderDetailRepositoryTestIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/nickz/OrderRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nickz/integration/OrderRepositoryTestIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/nickz/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nickz/integration/OrderServiceTestIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/nickz/ProductRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nickz/integration/ProductRepositoryTestIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,67 +96,71 @@
       <recent name="C:\Users\MSIN\IdeaProjects\jdbcServlets\src\main\resources\changelog" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nickz.unit" />
+      <recent name="com.nickz.dto" />
       <recent name="com.nickz.exception" />
       <recent name="com.nickz" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.10">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nickz.App" />
+  <component name="RunManager" selected="JUnit.nickz in jdbcServlets">
+    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbcServlets" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nickz.*" />
+          <option name="PATTERN" value="com.nickz.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.nickz.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.unit.OrderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderServiceTest.createOrder_WithValidData_CreatesOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbcServlets" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nickz.*" />
+          <option name="PATTERN" value="com.nickz.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.nickz" />
-      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
-      <option name="METHOD_NAME" value="getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
+      <option name="PACKAGE_NAME" value="com.nickz.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.unit.OrderServiceTest" />
+      <option name="METHOD_NAME" value="createOrder_WithValidData_CreatesOrder" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderServiceTest.getAllOrders_WithValidOrders_ReturnsListOfOrders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbcServlets" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nickz.*" />
+          <option name="PATTERN" value="com.nickz.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.nickz" />
-      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
-      <option name="METHOD_NAME" value="getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
+      <option name="PACKAGE_NAME" value="com.nickz.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.unit.OrderServiceTest" />
+      <option name="METHOD_NAME" value="getAllOrders_WithValidOrders_ReturnsListOfOrders" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderServiceTest.getOrderById_ExistingOrder_ReturnsOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jdbcServlets" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nickz.*" />
+          <option name="PATTERN" value="com.nickz.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.nickz" />
-      <option name="MAIN_CLASS_NAME" value="com.nickz.OrderServiceTest" />
-      <option name="METHOD_NAME" value="updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
+      <option name="PACKAGE_NAME" value="com.nickz.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.nickz.unit.OrderServiceTest" />
+      <option name="METHOD_NAME" value="getOrderById_ExistingOrder_ReturnsOrder" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -245,20 +262,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
-      <item itemvalue="JUnit.OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
-      <item itemvalue="JUnit.OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
+      <item itemvalue="JUnit.OrderServiceTest" />
+      <item itemvalue="JUnit.OrderServiceTest.createOrder_WithValidData_CreatesOrder" />
+      <item itemvalue="JUnit.OrderServiceTest.getAllOrders_WithValidOrders_ReturnsListOfOrders" />
+      <item itemvalue="JUnit.OrderServiceTest.getOrderById_ExistingOrder_ReturnsOrder" />
       <item itemvalue="JUnit.nickz in jdbcServlets" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.10" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.nickz in jdbcServlets" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.OrderServiceTest.updateOrder_NonExistentOrder_ShouldThrowOrderNotFoundException" />
-        <item itemvalue="JUnit.OrderServiceTest.getOrderById_and_updateOrderById_then_ShouldRetrieveOrderWithDetailsAndProducts" />
-        <item itemvalue="JUnit.OrderServiceTest.getOrderById_ShouldRetrieveOrderWithDetailsAndProducts" />
+        <item itemvalue="JUnit.OrderServiceTest.createOrder_WithValidData_CreatesOrder" />
+        <item itemvalue="JUnit.OrderServiceTest" />
+        <item itemvalue="JUnit.OrderServiceTest.getAllOrders_WithValidOrders_ReturnsListOfOrders" />
+        <item itemvalue="JUnit.OrderServiceTest.getOrderById_ExistingOrder_ReturnsOrder" />
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +291,7 @@
       <workItem from="1711983951657" duration="142000" />
       <workItem from="1711984547367" duration="5797000" />
       <workItem from="1712054588079" duration="17564000" />
-      <workItem from="1712135800095" duration="25025000" />
+      <workItem from="1712135800095" duration="34216000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;Repo+service&#10;tests&#10;(no servlets)">
       <created>1712156346324</created>
@@ -297,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712169453643</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="readme v1.0">
+      <created>1712214568294</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712214568294</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +342,8 @@
     <MESSAGE value="Initial commit&#10;Repo+service&#10;tests&#10;(no servlets)" />
     <MESSAGE value="test" />
     <MESSAGE value="controller logic&#10;problem fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="controller logic&#10;problem fixes" />
+    <MESSAGE value="readme v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme v1.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -339,7 +364,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/nickz/controllers/OrderController.java</url>
-          <line>58</line>
+          <line>59</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

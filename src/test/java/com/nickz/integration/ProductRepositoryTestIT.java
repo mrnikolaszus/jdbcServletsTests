@@ -1,6 +1,6 @@
-package com.nickz;
+package com.nickz.integration;
 
-import com.nickz.entity.Order;
+import com.nickz.dto.OrderCreateDto;
 import com.nickz.entity.OrderStatus;
 import com.nickz.entity.Product;
 import com.nickz.repository.OrderRepository;
@@ -19,11 +19,10 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Testcontainers
-public class ProductRepositoryTest extends IntegrationTestBase {
+public class ProductRepositoryTestIT extends IntegrationTestBase {
 
     private static MockedStatic<ConnectionManager> mockedConnectionManager;
     private static ProductRepository productRepository;
@@ -62,8 +61,7 @@ public class ProductRepositoryTest extends IntegrationTestBase {
 
     @Test
     void testCreateProduct() throws SQLException {
-        Order newOrder = new Order();
-        newOrder.setOrderDate(LocalDateTime.now());
+        OrderCreateDto newOrder = new OrderCreateDto();
         newOrder.setStatus(OrderStatus.processing);
         int newOrderId = orderRepository.create(newOrder);
         Product newProduct = new Product();
@@ -97,8 +95,7 @@ public class ProductRepositoryTest extends IntegrationTestBase {
 
     @Test
     void testDeleteProduct() throws SQLException {
-        Order newOrder = new Order();
-        newOrder.setOrderDate(LocalDateTime.now());
+        OrderCreateDto newOrder = new OrderCreateDto();
         newOrder.setStatus(OrderStatus.processing);
         int newOrderId = orderRepository.create(newOrder);
         Product newProduct = new Product();
