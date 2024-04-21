@@ -29,8 +29,9 @@ public class OrderService {
     }
 
     public OrderDto getOrderById(int orderId) {
-        return orderRepository.findById(orderId).map(order -> {
-            List<Product> products;
+        return orderRepository.findById(orderId)
+                .map(order -> {
+            List<Product> products; // вот это все лучше вынести в приватный метод, а не оставлять в map()
             try {
                 products = productRepository.findByOrderId(orderId);
             } catch (SQLException e) {
@@ -85,7 +86,7 @@ public class OrderService {
     public void updateOrder(OrderDto orderDto) {
         try {
             Optional<Order> existingOrderOpt = orderRepository.findById(orderDto.getOrderId());
-            if (!existingOrderOpt.isPresent()) {
+            if (existingOrderOpt.isEmpty()) {
                 throw new OrderUpdateException("Order not found with ID: " + orderDto.getOrderId());
             }
             Order existingOrder = existingOrderOpt.get();

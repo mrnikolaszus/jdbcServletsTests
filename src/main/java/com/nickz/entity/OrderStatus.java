@@ -1,7 +1,7 @@
 package com.nickz.entity;
 
 public enum OrderStatus {
-    processing,
+    PROCESSING, // константы всегда апперкейсом идут
     completed,
     cancelled;
 

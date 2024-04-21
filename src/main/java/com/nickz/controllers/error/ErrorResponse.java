@@ -1,6 +1,5 @@
 package com.nickz.controllers.error;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -12,7 +11,7 @@ public class ErrorResponse {
     public ErrorResponse(int status, String message) {
         this.status = status;
         this.message = message;
-        this.timestamp = System.currentTimeMillis();
+        this.timestamp = System.currentTimeMillis(); // почему не LocalDateTime или OffsetDateTime?
     }
 
 }

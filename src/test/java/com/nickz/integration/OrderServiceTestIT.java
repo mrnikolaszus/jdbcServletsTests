@@ -178,7 +178,7 @@ public class OrderServiceTestIT extends IntegrationTestBase{
     private OrderDto setupOrderDto() {
         OrderDto orderDto = new OrderDto();
         orderDto.setOrderDate(LocalDateTime.now());
-        orderDto.setStatus(OrderStatus.processing);
+        orderDto.setStatus(OrderStatus.PROCESSING);
 
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setCustomerName("Test name");
@@ -205,7 +205,7 @@ public class OrderServiceTestIT extends IntegrationTestBase{
 
     private OrderCreateDto setupCreateOrderDto() {
         OrderCreateDto orderCreateDto = new OrderCreateDto();
-        orderCreateDto.setStatus(OrderStatus.processing);
+        orderCreateDto.setStatus(OrderStatus.PROCESSING);
 
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setCustomerName("Test name");

@@ -55,7 +55,7 @@ public class OrderController extends HttpServlet {
                 return;
             }
             try {
-                int orderId = Integer.parseInt(splits[1]);
+                int orderId = Integer.parseInt(splits[1]); // как правило, траи виносят в отдельные методы для больше чистоты, но тут это не критично
                 OrderDto orderDto = orderService.getOrderById(orderId);
                 resp.setContentType("application/json");
                 resp.getWriter().write(objectMapper.writeValueAsString(orderDto));

@@ -62,7 +62,7 @@ public class ProductRepositoryTestIT extends IntegrationTestBase {
     @Test
     void testCreateProduct() throws SQLException {
         OrderCreateDto newOrder = new OrderCreateDto();
-        newOrder.setStatus(OrderStatus.processing);
+        newOrder.setStatus(OrderStatus.PROCESSING);
         int newOrderId = orderRepository.create(newOrder);
         Product newProduct = new Product();
         newProduct.setOrderId(newOrderId);
@@ -96,7 +96,7 @@ public class ProductRepositoryTestIT extends IntegrationTestBase {
     @Test
     void testDeleteProduct() throws SQLException {
         OrderCreateDto newOrder = new OrderCreateDto();
-        newOrder.setStatus(OrderStatus.processing);
+        newOrder.setStatus(OrderStatus.PROCESSING);
         int newOrderId = orderRepository.create(newOrder);
         Product newProduct = new Product();
         newProduct.setOrderId(newOrderId);

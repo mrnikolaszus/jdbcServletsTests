@@ -64,7 +64,7 @@ public class OrderRepositoryTestIT extends IntegrationTestBase {
     @Test
     void testCreateOrder() throws SQLException {
         OrderCreateDto newOrder = new OrderCreateDto();
-        newOrder.setStatus(OrderStatus.processing);
+        newOrder.setStatus(OrderStatus.PROCESSING);
 
         var size = orderRepository.findAll().size();
         orderRepository.create(newOrder);
@@ -95,7 +95,7 @@ public class OrderRepositoryTestIT extends IntegrationTestBase {
     @Test
     void testDeleteOrder() throws SQLException {
         OrderCreateDto newOrder = new OrderCreateDto();
-        newOrder.setStatus(OrderStatus.processing);
+        newOrder.setStatus(OrderStatus.PROCESSING);
         int newOrderId = orderRepository.create(newOrder);
 
         orderRepository.delete(newOrderId);

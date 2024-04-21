@@ -47,7 +47,7 @@ public class OrderRepositoryTest {
         when(resultSet.next()).thenReturn(true);
         when(resultSet.getInt(1)).thenReturn(100);
         OrderCreateDto orderCreateDto = new OrderCreateDto();
-        orderCreateDto.setStatus(OrderStatus.processing);
+        orderCreateDto.setStatus(OrderStatus.PROCESSING);
         int generatedId = repository.create(orderCreateDto);
         assertEquals(100, generatedId);
         verify(preparedStatement).setString(2, orderCreateDto.getStatus().name());
@@ -82,10 +82,10 @@ public class OrderRepositoryTest {
         when(resultSet.next()).thenReturn(true);
         when(resultSet.getInt("order_id")).thenReturn(1);
         when(resultSet.getTimestamp("order_date")).thenReturn(Timestamp.valueOf(LocalDateTime.now()));
-        when(resultSet.getString("status")).thenReturn(OrderStatus.processing.name());
+        when(resultSet.getString("status")).thenReturn(OrderStatus.PROCESSING.name());
         Optional<Order> result = repository.findById(1);
         assertTrue(result.isPresent());
-        assertEquals(OrderStatus.processing, result.get().getStatus());
+        assertEquals(OrderStatus.PROCESSING, result.get().getStatus());
         verify(preparedStatement).setInt(1, 1);
         verify(preparedStatement).executeQuery();
     }
@@ -106,7 +106,7 @@ public class OrderRepositoryTest {
         when(resultSet.next()).thenReturn(true, true, false);
         when(resultSet.getInt("order_id")).thenReturn(1, 2);
         when(resultSet.getTimestamp("order_date")).thenReturn(Timestamp.valueOf(LocalDateTime.now()));
-        when(resultSet.getString("status")).thenReturn(OrderStatus.processing.name(), OrderStatus.completed.name());
+        when(resultSet.getString("status")).thenReturn(OrderStatus.PROCESSING.name(), OrderStatus.completed.name());
         List<Order> result = repository.findAll();
         assertEquals(2, result.size());
     }
