@@ -31,7 +31,8 @@ public class OrderDetailRepository {
         String sql = "SELECT * FROM order_details";
         try (Connection conn = ConnectionManager.getConnect();
              PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+             ResultSet rs = stmt.executeQuery()
+        ) {
             while (rs.next()) {
                 details.add(mapToOrderDetail(rs));
             }
@@ -102,7 +103,7 @@ public class OrderDetailRepository {
 
     private OrderDetail mapToOrderDetail(ResultSet rs) throws SQLException {
         OrderDetail detail = new OrderDetail();
-        detail.setDetailId(rs.getInt("detail_id"));
+        detail.setDetailId(rs.getInt("detail_id")); // можно было бы прямо в маппер вынести, но это не обязательно
         detail.setOrderId(rs.getInt("order_id"));
         detail.setCustomerName(rs.getString("customer_name"));
         detail.setOrderDescription(rs.getString("order_description"));

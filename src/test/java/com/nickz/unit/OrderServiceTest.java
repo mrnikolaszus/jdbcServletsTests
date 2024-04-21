@@ -75,7 +75,7 @@ public class OrderServiceTest {
 
     @Test
     void createOrder_WithValidData_CreatesOrder() throws SQLException {
-        OrderCreateDto orderCreateDto = new OrderCreateDto(OrderStatus.processing, new OrderDetail(), new ArrayList<>());
+        OrderCreateDto orderCreateDto = new OrderCreateDto(OrderStatus.PROCESSING, new OrderDetail(), new ArrayList<>());
         doNothing().when(orderDetailRepository).create(any(OrderDetail.class));
         when(orderRepository.create(any(OrderCreateDto.class))).thenReturn(1);
         assertDoesNotThrow(() -> orderService.createOrder(orderCreateDto));
@@ -86,7 +86,7 @@ public class OrderServiceTest {
 
     @Test
     void updateOrder_WithValidData_UpdatesOrder() throws SQLException {
-        OrderDto orderDto = new OrderDto(1, LocalDateTime.now(), OrderStatus.processing, new OrderDetail(), new ArrayList<>());
+        OrderDto orderDto = new OrderDto(1, LocalDateTime.now(), OrderStatus.PROCESSING, new OrderDetail(), new ArrayList<>());
         when(orderRepository.findById(orderDto.getOrderId())).thenReturn(Optional.of(new Order()));
         assertDoesNotThrow(() -> orderService.updateOrder(orderDto));
         verify(orderRepository).update(any(Order.class));
